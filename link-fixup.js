@@ -349,13 +349,18 @@
       resultTitle = document.createElement("h4"),
       resultLink = document.createElement("a"),
       resultURL = document.createElement("p"),
-      resultSnippet = document.createElement("p");
+      resultSnippet = document.createElement("p"),
+      resultCacheLink = document.createElement("a"),
+      resultCacheURL = "https://search.sideshowbarker.net/CacheResource_p.html";
 
       result.className = "result";
       resultURL.className = "resulturl";
       resultSnippet.className = "resultsnippet";
       resultLink.href = doc.sku;
-      resultURL.textContent = doc.sku;
+      resultCacheLink.href = resultCacheURL + "?url=" + doc.sku;
+      resultCacheLink.textContent = "cache";
+      resultURL.textContent = doc.sku + " ";
+      resultURL.appendChild(resultCacheLink);
       resultLink.innerHTML = "HTML Standard";
       resultLink.tabIndex = 0;
       if (doc.inboundlinks_anchortext_txt) {
